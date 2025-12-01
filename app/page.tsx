@@ -1,12 +1,13 @@
+import Countdown from "../components/countdown";
 import ConfirmForm from "../components/form";
-import Timer from "../components/timer";
+import Store from "../components/store";
 
 export default function Home() {
   return (
     <div>
-      <div className="h-screen w-full flex bg-hero items-center justify-center">
+      <div className="h-screen w-full flex bg-hero  bg-cover items-center justify-center">
         <h1 className="text-6xl font-bold text-blue-700 pb-16">
-          Marvin Maluco
+          Casamento Marvin e Rafaella
         </h1>
       </div>
       <div className="py-12 max-w-screen-2xl mx-auto">
@@ -25,30 +26,12 @@ export default function Home() {
           </span>
         </div>
       </div>
-      <div className="py-12 bg-red-500">
-        <div className="flex flex-col justify-center items-center  px-4 text-center">
-          <h2 className="text-3xl font-bold text-white">Contagem Regressiva</h2>
-          <div className="flex gap-12 flex-col md:flex-row">
-            <div className="flex flex-col items-center">
-              <h3>Onde?</h3>
-              <span>Av. Paulista, 1234</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <h3>Que dia?</h3>
-              <span>15 de dezembro</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <h3>Que horas?</h3>
-              <span>13:30</span>
-            </div>
-          </div>
-          <Timer />
-        </div>
-      </div>
+      <Countdown />
+      <Store />
       <div className="py-12 bg-blue-500">
-      <div className="max-w-screen-2xl mx-auto">
-      <ConfirmForm />
-      </div>
+        <div className="max-w-screen-2xl mx-auto">
+          <ConfirmForm />
+        </div>
       </div>
     </div>
   );

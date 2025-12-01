@@ -11,7 +11,7 @@ export default function Timer() {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const target = new Date("01/23/2025 18:40:00");
+    const target = new Date("01/23/2026 18:40:00");
 
     const interval = setInterval(() => {
       const now = new Date();
