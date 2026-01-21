@@ -2,25 +2,36 @@ import Timer from "./timer";
 
 export default function Countdown() {
   return (
-    <div className="py-12 bg-red-500">
-      <div className="flex flex-col justify-center items-center  px-4 text-center">
-        <h2 className="text-3xl font-bold text-white">Contagem Regressiva</h2>
-        <div className="flex gap-12 flex-col md:flex-row">
-          <div className="flex flex-col items-center">
-            <h3>Onde?</h3>
-            <span>Av. Paulista, 1234</span>
+    <section className="bg-slate-900 py-16">
+      <div className="mx-auto max-w-screen-xl px-6">
+        <div className="flex flex-col items-center gap-10 text-center">
+          <div className="space-y-3">
+            <h2 className="text-pretty text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Contagem Regressiva
+            </h2>
+            <p className="text-pretty text-sm leading-relaxed text-white/80 sm:text-base">
+              Local, data e horário do evento
+            </p>
           </div>
-          <div className="flex flex-col items-center">
-            <h3>Que dia?</h3>
-            <span>15 de dezembro</span>
+
+          <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+              <h3 className="text-sm font-semibold text-white/90">Onde?</h3>
+              <p className="mt-1 text-sm text-white/70">Av. Antônio Emmerich, 952 - Vila Sao Jorge, São Vicente - SP, 11390-000</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+              <h3 className="text-sm font-semibold text-white/90">Que dia?</h3>
+              <p className="mt-1 text-2xl font-semibold text-white/70">4 de Setembro</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+              <h3 className="text-sm font-semibold text-white/90">Que horas?</h3>
+              <p className="mt-1 text-2xl font-semibold text-white/70">20:00</p>
+            </div>
           </div>
-          <div className="flex flex-col items-center">
-            <h3>Que horas?</h3>
-            <span>13:30</span>
-          </div>
+
+          <Timer />
         </div>
-        <Timer />
       </div>
-    </div>
+    </section>
   );
 }

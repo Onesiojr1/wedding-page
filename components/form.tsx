@@ -40,85 +40,93 @@ export default function ConfirmForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-500 p-6">
-      <div className="bg-white rounded-2xl shadow-lg p-8 w-full">
-        <h1 className="text-2xl font-bold text-center text-blue-500 mb-4">Confirme sua presença!</h1>
-        <p className="text-center text-gray-700 mb-6">
+    <div className="mx-auto w-full max-w-2xl">
+      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <h1 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+          Confirme sua presença!
+        </h1>
+        <p className="mt-2 text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">
           Quero saber se terei o privilégio de tê-lo conosco nesse dia tão especial.
         </p>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
           <div>
-            <label className="block text-gray-700 font-medium mb-2">Estará presente no evento?</label>
-            <div className="flex items-center space-x-4">
-              <label className="flex items-center space-x-2">
+            <label className="block text-sm font-medium text-slate-700">
+              Estará presente no evento?
+            </label>
+            <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+              <label className="inline-flex items-center gap-2">
                 <input
                   type="radio"
                   value="Sim"
                   {...register("presenca", { required: "Por favor, selecione uma opção." })}
-                  className="h-4 w-4 text-blue-500"
+                  className="h-4 w-4 text-slate-900"
                 />
-                <span>Sim</span>
+                <span className="text-sm text-slate-700">Sim</span>
               </label>
-              <label className="flex items-center space-x-2">
+              <label className="inline-flex items-center gap-2">
                 <input
                   type="radio"
                   value="Não"
                   {...register("presenca", { required: "Por favor, selecione uma opção." })}
-                  className="h-4 w-4 text-blue-500"
+                  className="h-4 w-4 text-slate-900"
                 />
-                <span>Não</span>
+                <span className="text-sm text-slate-700">Não</span>
               </label>
             </div>
             {errors.presenca && <p className="text-red-500 text-sm mt-1">{errors.presenca.message}</p>}
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-2">Nome Completo</label>
+            <label className="block text-sm font-medium text-slate-700">Nome Completo</label>
             <input
               type="text"
               {...register("nomeCompleto", { required: "Por favor, insira seu nome completo." })}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10"
             />
             {errors.nomeCompleto && <p className="text-red-500 text-sm mt-1">{errors.nomeCompleto.message}</p>}
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-2">E-mail</label>
+            <label className="block text-sm font-medium text-slate-700">E-mail</label>
             <input
               type="email"
               {...register("email", { required: "Por favor, insira um e-mail válido." })}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10"
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-2">Celular</label>
+            <label className="block text-sm font-medium text-slate-700">Celular</label>
             <input
               type="tel"
               {...register("celular", { required: "Por favor, insira seu número de celular." })}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10"
             />
             {errors.celular && <p className="text-red-500 text-sm mt-1">{errors.celular.message}</p>}
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-2">Qtd. de pessoas (incluindo você)</label>
+            <label className="block text-sm font-medium text-slate-700">
+              Qtd. de pessoas (incluindo você)
+            </label>
             <input
               type="number"
               min="1"
               {...register("quantidade", { required: "Por favor, insira a quantidade de pessoas." })}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10"
             />
             {errors.quantidade && <p className="text-red-500 text-sm mt-1">{errors.quantidade.message}</p>}
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-2">Nomes das pessoas (incluindo você)</label>
+            <label className="block text-sm font-medium text-slate-700">
+              Nomes das pessoas (incluindo você)
+            </label>
             <textarea
               {...register("nomes", { required: "Por favor, insira os nomes." })}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10"
               rows={4}
               placeholder="Coloque apenas os nomes das pessoas separados por vírgula (,)."
             />
@@ -127,7 +135,7 @@ export default function ConfirmForm() {
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600"
+            className="w-full rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
             disabled={loading}
           >
             {loading ? "Enviando..." : "ENVIAR"}

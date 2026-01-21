@@ -9,9 +9,9 @@ interface ProductProps {
 
 export default function Product(props: ProductProps) {
   return (
-    <div className="w-64 mx-auto bg-white shadow-md hover:shadow-xl duration-500 rounded-xl overflow-hidden">
-      <a href={props.link} target="_blank" className="block">
-        <div className="relative" style={{ aspectRatio: "1/1", margin: "32px" }}>
+    <div className="group h-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md">
+      <a href={props.link} target="_blank" rel="noreferrer" className="block h-full">
+        <div className="relative mx-8 my-8" style={{ aspectRatio: "1/1" }}>
           <Image
             src={props.image}
             alt={props.name}
@@ -19,14 +19,17 @@ export default function Product(props: ProductProps) {
             className="object-contain"
           />
         </div>
-        <div className="px-4 py-3 flex flex-col justify-between h-28 gap-4">
-          <div className="min-h-12 flex items-center justify-center">
-            <p className="text-lg font-semibold text-center">{props.name}</p>
+        <div className="flex h-[7.5rem] flex-col justify-between gap-4 px-5 pb-5">
+          <div className="min-h-12">
+            <p className="line-clamp-2 text-sm font-semibold leading-snug text-slate-900">
+              {props.name}
+            </p>
           </div>
-          <div className="flex items-center justify-center">
-            <p className="text-lg font-bold">{props.price}</p>
-            <div className="ml-auto">
-              <Image src="/cart.png" alt="cart" width={25} height={25} />
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-semibold text-slate-900">{props.price}</p>
+            <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+              <span>Ver</span>
+              <Image src="/cart.png" alt="cart" width={18} height={18} />
             </div>
           </div>
         </div>

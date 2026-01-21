@@ -5,34 +5,62 @@ import Store from "../components/store";
 export default function Home() {
   return (
     <div>
-      <div className="h-screen w-full flex bg-hero  bg-cover items-center justify-center">
-        <h1 className="text-6xl font-bold text-blue-700 pb-16">
-          Casamento Marvin e Rafaella
-        </h1>
+      <div className="relative min-h-screen w-full bg-hero bg-cover bg-center">
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative mx-auto flex min-h-screen max-w-screen-xl items-center justify-center px-6 py-20 text-center">
+          <div className="max-w-3xl">
+            <h1 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
+              Casamento Marvin e Rafaella
+            </h1>
+            <p className="mt-6 text-pretty text-base leading-relaxed text-white/90 sm:text-lg">
+              Um dia especial para celebrar amor, família e amizade.
+            </p>
+
+            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+              <a
+                href="#rsvp"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-white/90 sm:w-auto"
+              >
+                Confirmar presença
+              </a>
+              <a
+                href="#presentes"
+                className="inline-flex w-full items-center justify-center rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white shadow-sm backdrop-blur transition hover:bg-white/15 sm:w-auto"
+              >
+                Ver lista de presentes
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="py-12 max-w-screen-2xl mx-auto">
-        <div className="flex flex-col items-start justify-center pb-12 px-4 md:px-24 gap-4">
-          <h2 className="text-3xl font-bold text-[#519ecf]">
+
+      <div className="bg-white py-12">
+        <div className="mx-auto max-w-screen-xl px-6">
+          <div className="flex flex-col items-start justify-center gap-4">
+            <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             Quem diria que uma simples ida a um bar, para comemorar um
             aniversário, nos traria até aqui?
           </h2>
-          <span className="text-2xl text-[#519ecf]">
+            <p className="text-pretty text-base leading-relaxed text-slate-700 sm:text-lg">
             Estamos dando um grande passo, unindo nossas vidas, sonhos e o
             desejo de estarmos sempre juntos. Não é só sobre dividir camas e
             contas, mas sobre construir um lar cheio de amor e companheirismo.
             Por isso, queremos você ao nosso lado nessa celebração tão especial.
             Venha comemorar com a gente o início desse novo ciclo, que será
             ainda mais feliz com sua presença!
-          </span>
+            </p>
+          </div>
         </div>
       </div>
+
       <Countdown />
       <Store />
-      <div className="py-12 bg-blue-500">
-        <div className="max-w-screen-2xl mx-auto">
+
+      <section id="rsvp" className="bg-slate-50 py-12">
+        <div className="mx-auto max-w-screen-xl px-6">
           <ConfirmForm />
         </div>
-      </div>
+      </section>
     </div>
   );
 }

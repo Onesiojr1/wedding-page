@@ -11,7 +11,7 @@ export default function Timer() {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const target = new Date("01/23/2026 18:40:00");
+    const target = new Date("09/04/2026 20:00:00");
 
     const interval = setInterval(() => {
       const now = new Date();
@@ -41,12 +41,14 @@ export default function Timer() {
   
   if(partyTime) {
     return (
-      <h3 className="font-bold text-5xl text-white">Espero que tenha sido divertido!!!</h3>
+      <h3 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        Espero que tenha sido divertido!!!
+      </h3>
     )
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-4">
+    <div className="flex flex-wrap justify-center gap-6">
       <TimerText time={days} label="Dias" />
       <TimerText time={hours} label="Horas" />
       <TimerText time={minutes} label="Minutos" />
