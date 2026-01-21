@@ -32,7 +32,7 @@ export default function ConfirmForm() {
     console.log('aqui 2')
       const result = await response.json();
       alert(result.message);
-    } catch (error) {
+    } catch {
       alert("Erro ao enviar dados");
     } finally {
       setLoading(false);
