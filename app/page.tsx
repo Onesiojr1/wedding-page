@@ -37,17 +37,9 @@ export default function Home() {
       <div className="bg-white py-12">
         <div className="mx-auto max-w-screen-xl px-6">
           <div className="flex flex-col items-start justify-center gap-4">
-            <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            Quem diria que uma simples ida a um bar, para comemorar um
-            aniversário, nos traria até aqui?
-          </h2>
-            <p className="text-pretty text-base leading-relaxed text-slate-700 sm:text-lg">
-            Estamos dando um grande passo, unindo nossas vidas, sonhos e o
-            desejo de estarmos sempre juntos. Não é só sobre dividir camas e
-            contas, mas sobre construir um lar cheio de amor e companheirismo.
-            Por isso, queremos você ao nosso lado nessa celebração tão especial.
-            Venha comemorar com a gente o início desse novo ciclo, que será
-            ainda mais feliz com sua presença!
+            <p className="text-pretty text-base leading-relaxed text-slate-700 sm:text-lg text-center">
+              Nossa história começou na escola e, com o passar dos anos, crescemos juntos, compartilhando sonhos, desafios e tantas histórias. Agora, estamos prontos para oficializar esse amor e iniciar um novo capítulo: a formação da nossa família. <br />
+              Queremos você ao nosso lado para celebrar esse momento tão especial!
             </p>
           </div>
         </div>

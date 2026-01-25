@@ -10,7 +10,8 @@ export default function Store() {
             Lista de Presentes
           </h2>
           <p className="mt-3 text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">
-            Se quiser nos presentear, escolha um item abaixo.
+            Os itens desta lista são simbólicos e meramente ilustrativos.<br />
+            O valor do presente será recebido pelo casal e utilizado para nossos planos e sonhos.
           </p>
         </div>
 

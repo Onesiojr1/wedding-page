@@ -46,7 +46,7 @@ export default function ConfirmForm() {
           Confirme sua presença!
         </h1>
         <p className="mt-2 text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">
-          Quero saber se terei o privilégio de tê-lo conosco nesse dia tão especial.
+          Queremos saber se teremos o privilégio de tê-lo conosco nesse dia tão especial.
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
