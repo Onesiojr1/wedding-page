@@ -13,7 +13,7 @@ export default function Home() {
               Casamento Marvin e Rafaella
             </h1>
             <p className="mt-6 text-pretty text-base leading-relaxed text-white/90 sm:text-lg">
-              Um dia especial para celebrar amor, família e amizade.
+              Um dia especial para celebrar amor.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
