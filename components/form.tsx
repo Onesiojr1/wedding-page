@@ -1,6 +1,6 @@
 'use client';
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface FormData {
   presenca: string;
@@ -19,21 +19,45 @@ export default function ConfirmForm() {
   } = useForm<FormData>();
 
   const [loading, setLoading] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [feedbackMessage, setFeedbackMessage] = useState<string>("");
+  const [feedbackType, setFeedbackType] = useState<"success" | "error">("success");
+
+  useEffect(() => {
+    if (!feedbackOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setFeedbackOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [feedbackOpen]);
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
-    console.log('aqui')
     try {
       const response = await fetch("/api/salvarDados", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-    console.log('aqui 2')
-      const result = await response.json();
-      alert(result.message);
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        setFeedbackType("error");
+        setFeedbackMessage(result?.message ?? "Erro ao enviar dados");
+        setFeedbackOpen(true);
+        return;
+      }
+
+      setFeedbackType("success");
+      setFeedbackMessage(result?.message ?? "Confirmação enviada com sucesso!");
+      setFeedbackOpen(true);
     } catch {
-      alert("Erro ao enviar dados");
+      setFeedbackType("error");
+      setFeedbackMessage("Erro ao enviar dados");
+      setFeedbackOpen(true);
     } finally {
       setLoading(false);
     }
@@ -41,6 +65,42 @@ export default function ConfirmForm() {
 
   return (
     <div className="mx-auto w-full max-w-2xl">
+      {feedbackOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          role="dialog"
+          aria-modal="true"
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) setFeedbackOpen(false);
+          }}
+        >
+          <div className="w-full max-w-md rounded-2xl bg-white p-10 shadow-xl">
+            <div
+              className={
+                feedbackType === "success"
+                  ? "text-center text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl"
+                  : "text-center text-2xl font-semibold tracking-tight text-red-700 sm:text-3xl"
+              }
+            >
+              {feedbackType === "success" ? "Confirmação enviada" : feedbackMessage}
+            </div>
+
+            <div className="mt-8 flex justify-center">
+              <button
+                type="button"
+                className={
+                  feedbackType === "success"
+                    ? "rounded-xl bg-slate-900 px-6 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+                    : "rounded-xl bg-red-600 px-6 py-2 text-sm font-semibold text-white transition hover:bg-red-500"
+                }
+                onClick={() => setFeedbackOpen(false)}
+              >
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
         <h1 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
           Confirme sua presença!

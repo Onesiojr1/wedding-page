@@ -36,10 +36,15 @@ export default function Home() {
 
       <div className="bg-white py-12">
         <div className="mx-auto max-w-screen-xl px-6">
-          <div className="flex flex-col items-start justify-center gap-4">
+          <div className="flex flex-col items-center justify-center gap-4">
             <p className="text-pretty text-base leading-relaxed text-slate-700 sm:text-lg text-center">
-              Nossa história começou na escola e, com o passar dos anos, crescemos juntos, compartilhando sonhos, desafios e tantas histórias. Agora, estamos prontos para oficializar esse amor e iniciar um novo capítulo: a formação da nossa família. <br />
-              Queremos você ao nosso lado para celebrar esse momento tão especial!
+              Nossa história começou na escola e, ao longo dos anos, caminhamos lado a lado, dividindo sonhos, superando desafios e colecionando memórias inesquecíveis. 
+            </p>
+            <p className="text-pretty text-base leading-relaxed text-slate-700 sm:text-lg text-center">
+              Agora, chegou o momento de celebrar esse amor e iniciar uma nova etapa: a construção da nossa família.
+            </p>
+            <p className="text-pretty text-base font-semibold leading-relaxed text-slate-700 sm:text-lg text-center">
+              Será uma alegria ter você conosco nesse dia tão especial!
             </p>
           </div>
         </div>
