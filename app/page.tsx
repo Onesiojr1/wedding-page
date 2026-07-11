@@ -5,7 +5,7 @@ import Store from "../components/store";
 export default function Home() {
   return (
     <div>
-      <div className="relative min-h-screen w-full bg-hero bg-cover bg-center">
+      <div className="relative min-h-screen w-full bg-hero bg-cover bg-center md:bg-[center_38%]">
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative mx-auto flex min-h-screen max-w-screen-xl items-center justify-center px-6 py-20 text-center">
           <div className="max-w-3xl">
